@@ -30,7 +30,7 @@ def get_key(current_binary_list: List, radiation_type: str, analysed_position_in
     return key
 
 
-def get_attribute(input_data_list, radiation_name):
+def get_attribute(input_data_list: List, radiation_name: str) -> int:
     my_index = 0
     my_data_list = input_data_list
     while len(my_data_list) != 1:
