@@ -1,3 +1,4 @@
+from typing import List
 from bingo_table import BingoTable
 
 with open('input.txt', 'r') as reader:
@@ -20,13 +21,14 @@ for bingo_table in bingo_tables:
     bingo_table.get_columns()
 
 
-def play_bingo(bingo_tables, bingo_draw):
+def play_bingo(bingo_tables_list: List, list_of_drawn_numbers: List):
     table_scores = []
-    for number in bingo_draw:
-        for current_bingo_table in bingo_tables:
+    for number in list_of_drawn_numbers:
+        for current_bingo_table in bingo_tables_list:
             current_bingo_table.check_hit(number)
             if current_bingo_table.check_bingo():
                 table_scores.append(current_bingo_table.get_score() * int(number))
+    print(table_scores[0])
     print(table_scores[-1])
 
 

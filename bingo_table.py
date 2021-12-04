@@ -24,7 +24,7 @@ class BingoTable:
                 if draw_num == line[i]:
                     line[i] = 'X'
 
-    def check_bingo(self):
+    def check_bingo(self) -> bool:
         if self.is_done:
             return False
         for line in self.table:
@@ -32,10 +32,10 @@ class BingoTable:
                 self.is_done = True
                 return True
 
-    def get_score(self):
+    def get_score(self) -> int:
         sum_of_remaining_numbers = 0
         for line in self.table:
             for element in line:
                 if element != 'X':
                     sum_of_remaining_numbers += int(element)
-        return sum_of_remaining_numbers / 2
+        return sum_of_remaining_numbers // 2
